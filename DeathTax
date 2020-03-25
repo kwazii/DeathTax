@@ -1,0 +1,25 @@
+$PushUps = 0;$Burpees = 0;$Lunges = 0;$Squats = 0;$Crunches = 0;$Planks = 0;
+
+$choices = [System.Management.Automation.Host.ChoiceDescription[]] @("&Yes","&No", "&Status")
+while ( $true ) {
+  switch (Get-Random -Minimum 1 -Maximum 6)
+	{
+		1 {$local = Get-Random -Minimum 12 -Maximum 24;"PushUps " + $local; $PushUps=$Pushups+$local;}
+		2 {$local = Get-Random -Minimum 10 -Maximum 18;"Burpees " + $local; $Burpees=$Burpees+$local;}
+		3 {$local = Get-Random -Minimum 12 -Maximum 20;"Lunges " + $local; $Lunges=$Lunges+$local;}
+		4 {$local = Get-Random -Minimum 15 -Maximum 25;"Squats " + $local; $Squats=$Squats+$local;}
+		5 {$local = Get-Random -Minimum 15 -Maximum 20;"Crunches " + $local; $Crunches=$Crunches+$local;}
+		6 {$local = Get-Random -Minimum 20 -Maximum 45;"Planks " + $local; $Planks=$Planks+$local;}
+	}
+  $choice = $Host.UI.PromptForChoice("Repeat the script?","",$choices,0)
+  if ( $choice -eq 2) {"You've done "+$pushups+" Pushups, "+$burpees+" Burpees, "+$Lunges+" Lunges, "+$Squats+" Squats, "+$Crunches+" Crunches, and "+$Planks+" Planks.... FATASS";pause;}
+  if ( $choice -eq  1 ) {break}
+}
+
+#Features
+#Timebased multiplier
+#Lifetime Status
+#Push to Twitter
+
+#Task
+#Put on Github
