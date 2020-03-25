@@ -1,7 +1,10 @@
 $PushUps = 0;$Burpees = 0;$Lunges = 0;$Squats = 0;$Crunches = 0;$Planks = 0;
 
 $choices = [System.Management.Automation.Host.ChoiceDescription[]] @("&Yes","&No", "&Status")
+$choice = 0
 while ( $true ) {
+if ( $choice -eq 0)
+{
   switch (Get-Random -Minimum 1 -Maximum 6)
 	{
 		1 {
@@ -13,10 +16,10 @@ while ( $true ) {
 		$local = Get-Random -Minimum 10 -Maximum 18;
 		"Do " + $local +" Burpees Fatass";
 		$Burpees=$Burpees+$local;
-		}
+		}	
 		3 {
 		$local = Get-Random -Minimum 12 -Maximum 20;
-		"Do " + $local +" Lungs Fatass"; 
+		"Do " + $local +" Lunges Fatass"; 
 		$Lunges=$Lunges+$local;
 		}
 		4 {
@@ -35,12 +38,11 @@ while ( $true ) {
 		$Planks=$Planks+$local;
 		}
 	}
+	}
   $choice = $Host.UI.PromptForChoice("Repeat the script?","",$choices,0)
-  if ( $choice -eq 2) {"You've done "+$pushups+" Pushups, "+$burpees+" Burpees, "+$Lunges+" Lunges, "+$Squats+" Squats, "+$Crunches+" Crunches, and "+$Planks+" Planks.... FATASS";pause;}
-  if ( $choice -eq  1 ) {break}
+  if ( $choice -eq 2) {"You've done "+$pushups+" Pushups, "+$burpees+" Burpees, "+$Lunges+" Lunges, "+$Squats+" Squats, "+$Crunches+" Crunches, and "+$Planks+" Planks.... FATASS";}
+  if ( $choice -eq  1 ) {
+	Out-File ./fatass.txt; 
+	Add-Content ./fatass.txt $PushUps","$Burpees","$Lunges","$Squats","$Crunches","$Planks;
+	Break;}
 }
-
-#Features
-#Timebased multiplier
-#Lifetime Status
-#Push 
