@@ -19,7 +19,15 @@ if ( $choice -eq 0)
 		}	
 		3 {
 		$local = Get-Random -Minimum 12 -Maximum 20;
-		"Do " + $local +" Lunges Fatass"; 
+		if($local%2 -eq 0)
+		{
+		"Do " + $local +" Lunges Fatass";
+		}
+		if($local%2 -eq 1)
+		{
+		$local=$local+1
+		"Do " + $local +" Lunges Fatass";
+		}
 		$Lunges=$Lunges+$local;
 		}
 		4 {
@@ -46,3 +54,11 @@ if ( $choice -eq 0)
 	Add-Content ./fatass.txt $PushUps","$Burpees","$Lunges","$Squats","$Crunches","$Planks;
 	Break;}
 }
+
+#Features
+#Timebased multiplier
+#Lifetime Status
+#Push 
+
+#Task
+#Put on Github
