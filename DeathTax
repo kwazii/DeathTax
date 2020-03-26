@@ -19,15 +19,8 @@ if ( $choice -eq 0)
 		}	
 		3 {
 		$local = Get-Random -Minimum 12 -Maximum 20;
-		if($local%2 -eq 0)
-		{
-		"Do " + $local +" Lunges Fatass";
-		}
-		if($local%2 -eq 1)
-		{
-		$local=$local+1
-		"Do " + $local +" Lunges Fatass";
-		}
+		if($local%2 -eq 0){"Do " + $local +" Lunges Fatass";}
+		if($local%2 -eq 1){$local++;"Do " + $local +" Lunges Fatass";}
 		$Lunges=$Lunges+$local;
 		}
 		4 {
