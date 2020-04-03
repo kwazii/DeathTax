@@ -5,7 +5,7 @@ $choice = 0
 while ( $true ) {
 if ( $choice -eq 0)
 {
-  switch (Get-Random -Minimum 1 -Maximum 6)
+  switch (Get-Random -Minimum 1 -Maximum 7)
 	{
 		1 {
 		$local = Get-Random -Minimum 12 -Maximum 24;
