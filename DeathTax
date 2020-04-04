@@ -1,4 +1,12 @@
-$PushUps = 0;$Burpees = 0;$Lunges = 0;$Squats = 0;$Crunches = 0;$Planks = 0;
+#$PushUps = 0;$Burpees = 0;$Lunges = 0;$Squats = 0;$Crunches = 0;$Planks = 0;
+$fatassobj = Import-CSV ./fatass.csv
+[int]$PushUps = $fatassobj.PushUps
+[int]$Burpees = $fatassobj.Burpees
+[int]$Lunges = $fatassobj.Lunges
+[int]$Squats = $fatassobj.Squats
+[int]$Crunches = $fatassobj.Crunches
+[int]$Planks = $fatassobj.Planks
+
 
 $choices = [System.Management.Automation.Host.ChoiceDescription[]] @("&Yes","&No", "&Status")
 $choice = 0
@@ -43,7 +51,8 @@ if ( $choice -eq 0)
   $choice = $Host.UI.PromptForChoice("Repeat the script?","",$choices,0)
   if ( $choice -eq 2) {"You've done "+$pushups+" Pushups, "+$burpees+" Burpees, "+$Lunges+" Lunges, "+$Squats+" Squats, "+$Crunches+" Crunches, and "+$Planks+" Planks.... FATASS";}
   if ( $choice -eq  1 ) {
-	Out-File ./fatass.txt; 
-	Add-Content ./fatass.txt $PushUps","$Burpees","$Lunges","$Squats","$Crunches","$Planks;
+	Out-File ./fatass.csv; 
+	Add-Content ./fatass.csv "PushUps, Burpees, Lunges, Squats, Crunches, Planks" 
+	Add-Content ./fatass.csv $PushUps","$Burpees","$Lunges","$Squats","$Crunches","$Planks;
 	Break;}
 }
