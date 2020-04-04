@@ -47,11 +47,3 @@ if ( $choice -eq 0)
 	Add-Content ./fatass.txt $PushUps","$Burpees","$Lunges","$Squats","$Crunches","$Planks;
 	Break;}
 }
-
-#Features
-#Timebased multiplier
-#Lifetime Status
-#Push 
-
-#Task
-#Put on Github
